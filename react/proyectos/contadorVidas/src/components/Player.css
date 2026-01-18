@@ -1,0 +1,94 @@
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.player-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.life-display {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.controls-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.buttons-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset {
+  background-color: var(--gray);
+  box-shadow: 0px 5px 0px var(--gray-dark);
+}
+
+.reset:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--gray-dark);
+}
+
+.reset:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px var(--gray-dark);
+}
+
+.heal {
+  background-color: var(--green);
+  box-shadow: 0px 5px 0px var(--green-dark);
+}
+
+.heal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--green-dark);
+}
+
+.heal:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px var(--green-dark);
+}
+
+.damage {
+  background-color: var(--red);
+  box-shadow: 0px 5px 0px var(--red-dark);
+}
+
+.damage:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--red-dark);
+}
+
+.damage:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px var(--red-dark);
+}
+
+.game-over {
+  opacity: 0.5;
+  pointer-events: none;
+}

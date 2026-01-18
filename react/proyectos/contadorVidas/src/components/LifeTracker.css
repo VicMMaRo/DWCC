@@ -1,0 +1,20 @@
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.winner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: gold;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

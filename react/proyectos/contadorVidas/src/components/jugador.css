@@ -1,0 +1,93 @@
+.jugadore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.nombre {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.vidas {
+  font-size: 4rem;
+  font-weight: bold;
+}
+.controles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contenedor-botones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset {
+  background-color: var(--gray);
+  box-shadow: 0px 5px 0px var(--gray-dark);
+}
+
+.reset:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--gray-dark);
+}
+
+.reset:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px var(--gray-dark);
+}
+
+.cura {
+  background-color: var(--green);
+  box-shadow: 0px 5px 0px var(--green-dark);
+}
+
+.cura:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--green-dark);
+}
+
+.cura:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px var(--green-dark);
+}
+
+.daño {
+  background-color: var(--red);
+  box-shadow: 0px 5px 0px var(--red-dark);
+}
+
+.daño:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--red-dark);
+}
+
+.daño:active {
+  transform: translateY(3px);
+  box-shadow: 0px 2px 0px var(--red-dark);
+}
+
+.game-over {
+  opacity: 0.5;
+  pointer-events: none;
+}
