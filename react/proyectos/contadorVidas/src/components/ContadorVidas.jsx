@@ -1,5 +1,5 @@
 import Jugador from "./Jugador";
-import PantallaGanador from "../PantallaGanador";
+import PantallaGanador from "../components/PantallaGanador";
 import  useContadorVidas  from "../hooks/useContadorVidas";
 import "./contadorVidas.css";
 
