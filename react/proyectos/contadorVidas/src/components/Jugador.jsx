@@ -1,5 +1,6 @@
 import { BOTONES_DANIO, BOTONES_CURACION } from "../constantes";
 import "./jugador.css";
+import {memo} from "react";//abajo en el export envolvemos el componente con memo
 
 function Jugador({ id, nombre, vidas, actualizarVidas, resetearVidas, esFinpartida=false }) {
   return (
@@ -38,4 +39,4 @@ function Jugador({ id, nombre, vidas, actualizarVidas, resetearVidas, esFinparti
   );
 }
 
-export default Jugador;
+export default memo(Jugador);
