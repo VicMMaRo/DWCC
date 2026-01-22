@@ -3,7 +3,7 @@ import "./jugador.css";
 
 function Jugador({ id, nombre, vidas, actualizarVidas, resetearVidas, esFinpartida=false }) {
   return (
-    <div className="jugadore">
+    <div className="jugador">
       <div className="nombre">{nombre}</div>
       <div className="vidas">{vidas}</div>
       <div className="controles">

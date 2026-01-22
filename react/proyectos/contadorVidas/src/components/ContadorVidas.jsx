@@ -1,5 +1,5 @@
 import Jugador from "./Jugador";
-import PantallaGanador from "../PantallaGanador";
+import PantallaGanador from "./PantallaGanador";
 import  useContadorVidas  from "../hooks/useContadorVidas";
 import "./contadorVidas.css";
 
@@ -36,19 +36,22 @@ COntado  //función para resetear vidas
 
   return (
     <div className="contenedor-principal">
-      {esFinpartida && <PantallaGanador ganador={ganador} resetearPartida={resetearPartida}/>}
-
-      {jugadores.map((j) => (
-        <Jugador
-          key={j.id}
-          id={j.id}
-          nombre={j.nombre}
-          vidas={j.vidas}
-          actualizarVidas={actualizarVidas}
-          resetearVidas={resetearVidas}
-          esFinpartida={esFinpartida}
-        />
-      ))}
+      {/* Usamos un ternario para pintar la pantallaGanador o los jugadores si es finPartida o no */}
+      {esFinpartida ? (<PantallaGanador ganador={ganador} resetearPartida={resetearPartida}/>)
+      :
+      (jugadores.map((j) => (
+                      <Jugador
+                        key={j.id}
+                        id={j.id}
+                        nombre={j.nombre}
+                        vidas={j.vidas}
+                        actualizarVidas={actualizarVidas}
+                        resetearVidas={resetearVidas}
+                        esFinpartida={esFinpartida}
+                      />
+                      )
+                    )
+      )}
     </div>
   );
 }
