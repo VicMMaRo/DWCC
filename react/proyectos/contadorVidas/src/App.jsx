@@ -8,9 +8,9 @@ function App() {
 
   return (
     <>
-      <ContadorVidas/>
+      {/* <ContadorVidas/> */}
       <Formulario/>
-      <FormularioReactivo/>
+    {/*   <FormularioReactivo/> */}
 
     </>
   )

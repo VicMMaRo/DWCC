@@ -1,3 +1,5 @@
+@import "tailwindcss"
+/* Este css lo borramos todo y añadimos el import de tailwindcss 
 :root {
   --blue: #3498db;
   --blue-dark: #2980b9;
@@ -30,3 +32,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+ */
