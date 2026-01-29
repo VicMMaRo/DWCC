@@ -5,7 +5,7 @@ export default function FormularioReactivoFernando() {
     nombre: "",
     email: "",
   });
-
+  
   const manejaCambio = (e) => {
     const { name, value } = e.target;
     setDatosFormulario((prev) => ({
