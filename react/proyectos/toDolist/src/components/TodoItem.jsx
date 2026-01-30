@@ -1,15 +1,18 @@
 import { useState, memo } from "react";
 
+//recibimos del padre las funciones que vamos a usar
 function TodoItem({ task, onUpdate, onCompleted, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);//iniciamos el estado en falso para que no salte el editar en el ternario del return
   const [editText, setEditText] = useState(task.text);
 
+  //función para editar texto
   const handleEditText = (e) => {
     setEditText(e.target.value);
   };
 
+  //función para guardar el texto editado y poner isEditing a false
   const handleSave = () => {
-     onUpdate(task.id, editText);
+    onUpdate(task.id, editText);
     setIsEditing(false);
   };
 
@@ -46,4 +49,4 @@ function TodoItem({ task, onUpdate, onCompleted, onDelete }) {
     </li>
   );
 }
-export default  memo(TodoItem);
+export default memo(TodoItem);
