@@ -2,32 +2,52 @@ import { useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
 
-const list = [
-  { id: 1, text: "Comprar Leche" },
-  { id: 2, text: "Escribir Mails Empresas" },
+const initialList = [
+  { id: 1, text: "Comprar Leche", completed: false },
+  { id: 2, text: "Escribir Mails Empresas", completed: false },
 ];
 
 export default function TodoList() {
-  const [tasks, setTasks] = useState(list);//cargamos la lista
+  const [tasks, setTasks] = useState(initialList);
 
-  //Función para añadir nueva tarea
   const addTask = (text) => {
     const newTask = {
       id: Date.now(),
       text: text,
+      completed: false
     };
 
-    //Actualizamos el estado
-    setTasks([...tasks, newTask]);//Mediante el operador ...spread pasamos toda la lista y despues le añadimos el nuevo elemento al final, es decir, la nueva tarea.
+    setTasks([...tasks, newTask]);
   };
+
+  const updateTask = (id, newText) => {
+    setTasks(tasks.map(
+      task => task.id === id ? {...task, text:newText} : task
+    ));
+  }
+
+  //función para actualizar estado completed de la tarea
+  const toggleTask = (id, completed) => {
+    setTasks(prev =>
+        prev.map(task => task.id === id ? { ...task, completed } : task
+      )
+    );
+  };
+
+  //función para borrar tarea
+  const deleteTask = (id) => {
+    setTasks(prev => prev.filter(task => task.id !== id));
+  };
+
+
   return (
     <>
       <ul>
         {tasks.map((task) => (
-          <TodoItem key={task.id} id={task.id} texto={task.text} />
+          <TodoItem key={task.id} task={task} onUpdate={updateTask} onCompleted={toggleTask} onDelete={deleteTask}/>
         ))}
       </ul>
-      <TodoInput onAdd={addTask} /> {/* Estamos pasando al hijo TodoInput la función addTask. Ahora podemos usarla alli para añadir tareas */}
+      <TodoInput onAdd={addTask} />
     </>
   );
 }
