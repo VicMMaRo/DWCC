@@ -1,58 +1,60 @@
-import { useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
+import useTodo from "../hooks/useTodo";
 
-const initialList = [
-  { id: 1, text: "Comprar Leche", completed: false },
-  { id: 2, text: "Escribir Mails Empresas", completed: false },
-];
+
 
 export default function TodoList() {
-  const [tasks, setTasks] = useState(initialList);//iniciamos el estado con la nueva lista, cuando esta cambie el componente vuelve a renderizar.
-
-  //función para añadir nueva tarea
-  const addTask = (text) => {
-    const newTask = {
-      id: Date.now(),
-      text: text,
-      completed: false
-    };
-    setTasks([...tasks, newTask]);//creamos nuevo array con el array task más la nueva tarea y lo seteamos
-  };
-
-  //función para actualizar tarea
-  //recibimos el id de la tarea y le cambiamos el nuevo texto
-  const updateTask = (id, newText) => {
-    setTasks(tasks.map(
-                        task => task.id === id ? {...task, text:newText} : task
-                      )
-            );
-  }
-
-  //función para actualizar estado completed de la tarea
-  //recibimos id y estado de completed(true/false) de la tarea 
-  const toggleTask = (id, completed) => {
-    setTasks(prev =>
-        prev.map(task => task.id === id ? { ...task, completed } : task
-      )
-    );
-  };
-
-  //función para borrar tarea
-  //recibimos id y borramos la tarea filtrando y quitando la que recibimos por id
-  const deleteTask = (id) => {
-    setTasks(prev => prev.filter(task => task.id !== id));
-  };
-
+  //desestructuramos useTodo. OJO, usand {} ya que recibimos el return de un objeto.
+  const {tasks, addTask, updateTask, toggleTask, deleteTask} = useTodo();
 
   return (
-    <>
+  /*  <>
       <ul>
         {tasks.map((task) => (
           <TodoItem key={task.id} task={task} onUpdate={updateTask} onCompleted={toggleTask} onDelete={deleteTask}/>
         ))}
       </ul>
       <TodoInput onAdd={addTask} />
-    </>
-  );
+    </> */
+
+  <div className="min-h-screen bg-lnear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden">
+      
+      {/* 1. Header */}
+      <header className="bg-indigo-600 p-6">
+        <h1 className="text-2xl font-bold text-white text-center">Mi Lista de Tareas</h1>
+        <p className="text-indigo-100 text-sm text-center mt-1">
+          Tienes {tasks.length} tareas pendientes
+        </p>
+      </header>
+
+      {/* 2. Body (Lista) */}
+      <main className="p-4 max-h-400 overflow-y-auto">
+        {tasks.length > 0 ? (
+          <ul className="space-y-3">
+            {tasks.map((task) => (
+              <TodoItem 
+                key={task.id} 
+                task={task} 
+                onUpdate={updateTask} 
+                onCompleted={toggleTask} 
+                onDelete={deleteTask}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className="text-center text-gray-400 py-10">No hay tareas. ¡Descansa!</p>
+        )}
+      </main>
+
+      {/* 3. Footer para el input y el botón */}
+      <footer className="p-4 bg-gray-50 border-t border-gray-100">
+        <TodoInput onAdd={addTask} />
+      </footer>
+
+    </div>
+  </div>
+);
+
 }
