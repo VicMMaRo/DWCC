@@ -1,0 +1,54 @@
+.game-over {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.game-over h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.final-score {
+  margin: 2rem 0;
+}
+
+.score-text {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.score-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #4a90e2;
+  margin: 0.5rem 0;
+}
+
+.score-label {
+  font-size: 1.25rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.play-again-btn {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  background: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.play-again-btn:hover {
+  background: #218838;
+}

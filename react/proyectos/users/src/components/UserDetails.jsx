@@ -11,10 +11,10 @@ export function UserDetails({user}){
                     <p className="card-text">{user.website}</p>
                 </div>
             </div>
-            <div className="className="card-footer text-center">
-                <Link to={"/"}>Volver</Link>
+            <div className="card-footer text-center">
+                <Link to={"/"} className="btn btn-outline-primary btn-sm">Volver</Link>
             </div>
-             
+
         </>    
     )
 }
