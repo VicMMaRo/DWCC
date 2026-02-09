@@ -23,7 +23,7 @@ export const countDown = (alarm, currentTime) => {
         const[horas, minutos] = alarm.split(":");//separamos en hora y minutos
         const fechaAlarma = new Date(currentTime);//creamos fechaAlarma usando currentDateTime
         console.log("Fecha creada desde currentime: "+fechaAlarma);
-        fechaAlarma.setHours(horas, minutos, 0,0);//modificamos la hora poniendo la desestructurada y segundos y milisegundos a 0
+        fechaAlarma.setHours(horas, minutos, 0,0);//modificamos la hora poniendola desestructurada más segundos y milisegundos a 0
 
         //calculamos la diferencia entre la fechaAlarma y la fecha actual en milisegundos
         // Convertimos los milisegundos de la resta en un texto de hora (HH:mm:ss)
